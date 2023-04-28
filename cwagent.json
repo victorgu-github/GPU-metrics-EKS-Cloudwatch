@@ -1,0 +1,36 @@
+apiVersion: v1
+data:
+  # cwagent json config  
+  cwagentconfig.json: |
+    {
+    "agent":
+      {
+        "debug": true
+      },
+    "logs": {
+      "metrics_collected":
+        {
+          "prometheus":
+          {
+            "log_group_name": "/aws/containerinsights/gpu-metrics/prometheus",
+            "prometheus_config_path": "/etc/prometheusconfig/prometheus.yaml",
+            "emf_processor":
+            {
+              "metric_declaration":
+              [{
+                "source_labels": ["pod_name"],
+                "label_matcher": ".*dcgm.*",
+                "dimensions": [["Namespace","ClusterName","job","container","pod"]],
+                "metric_selectors":
+                [
+                  "^DCGM_FI_DEV_GPU_UTIL$",
+                  "^DCGM_FI_DEV_MEM_COPY_UTIL$",
+                  "^DCGM_FI_DEV_POWER_USAGE$"
+                ]
+              }]
+            }
+          }
+          },
+            "force_flush_interval": 5
+          }
+        }

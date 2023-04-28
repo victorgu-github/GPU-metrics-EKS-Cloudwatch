@@ -1,4 +1,4 @@
-# GPU-metrics-EKS-Clouwatch
+# GPU-metrics-EKS-Cloudwatch
 The demand for GPU instances is increasing due to their use in various Machine Learning applications such as neural network training, complex simulations, and other related tasks. However, this demand presents challenges for customers, such as cost optimization and increased efficiency, as well as the need to allocate GPU usage costs among different parties on a platform solution. To address these challenges, specific data is necessary, and this blog post aims to provide guidance on how to collect this data.
 
 The main focus of this blog post is to obtain utilization metrics at the container, pod, or namespace level. We will provide details on how to set up container-based GPU metrics and demonstrate how it is integrated into Amazon Elastic Kubernetes Service (EKS) using CloudWatch as an example.
